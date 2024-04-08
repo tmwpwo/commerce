@@ -39,6 +39,8 @@ type Template struct {
 }
 
 func init() {
+
+	// yeah yeah I know... its just for study purposes I would not do it in real life app :D
 	secretKey := "secret"
 
 	tokenAuth = jwtauth.New("HS256", []byte(secretKey), nil)
