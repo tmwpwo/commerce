@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Basket</title>
+</head>
+<body>
+
+<h1>Your Shopping Basket</h1>
+
+{{ if .BasketItems }}
+    <ul>
+        {{ range .BasketItems }}
+            <li>{{ . }}</li>
+        {{ end }}
+    </ul>
+{{ else }}
+    <p>Your basket is empty.</p>
+{{ end }}
+
+<a href="/">Continue Shopping</a>
+<a href="/checkout">Checkout</a>
+
+</body>
+</html>

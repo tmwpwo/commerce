@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px
+        }
+
+        .item-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            border: 1px solid #8d1a1a;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #a46565;
+            width: 200px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .add-to-cart, .show-details {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .login-square {
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-align: center;
+        }
+
+        .login-button, .logout-button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .box {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.2);
+            padding: 35px;
+            background-clip: padding-box;
+            text-align: center;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+            .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        .popup .close:hover {
+            color: #06D85F;
+        }
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+        .basket-square {
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: center;
+        }
+
+        .basket-button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 700px){
+        .box{
+            width: 70%;
+        }
+        .popup{
+            width: 70%;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to Our Online Shop</h1>
+
+<form method="post" action="/process_form">
+    <div class="item-container">
+        <div class="item">
+            <h3>Product 1</h3>
+            <p>$20.99</p>
+            <div class="button-container">
+                <button class="add-to-cart" type="submit" name="action" value="add_to_cart_product1">Add to Cart</button>
+                <a class="button" href="#popup1">Show Details</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form method="post" action="/process_form">
+    <div class="item-container">
+        <div class="item">
+            <h3>Product 2</h3>
+            <p>$25.99</p>
+            <div class="button-container">
+                <button class="add-to-cart" type="submit" name="action" value="add_to_cart_product2">Add to Cart</button>
+                <a class="button" href="#popup2">Show Details</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form method="post" action="/process_form">
+    <div class="item-container">
+        <div class="item">
+            <h3>Product 3</h3>
+            <p>$20.99</p>
+            <div class="button-container">
+                <button class="add-to-cart" type="submit" name="action" value="add_to_cart_product3">Add to Cart</button>
+                <a class="button" href="#popup3">Show Details</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Product 1 Details</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			I am a product1 details
+		</div>
+	</div>
+</div>
+
+<div id="popup2" class="overlay">
+	<div class="popup">
+		<h2>Product 2 Details</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			I am a product2 details
+		</div>
+	</div>
+</div>
+
+<div id="popup3" class="overlay">
+	<div class="popup">
+		<h2>Product 3 Details</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			I am a product3 details
+		</div>
+	</div>
+</div>
+
+<div class="login-square">
+    {{ if .IsLoggedIn }}
+        <p>Hello</p>
+        <form method="get" action="/logout">
+            <button class="logout-button" type="submit" name="action" value="logout">Logout</button>
+        </form>
+    {{ else }}
+        <form method="get" action="/login">
+            <button class="login-button" type="submit" name="action" value="login">Login</button>
+        </form>
+        <form method="get" action="/register">
+            <button class="login-button" type="submit" name="action" value="login">Sign up</button>
+        </form>
+    {{ end }}
+</div>
+
+<div class="basket-square">
+    <p>Your Basket has {{ .X}} items</p>
+    <form method="get" action="/basket">
+        <button class="basket-button" type="submit" name="action" value="view_basket">View Basket</button>
+    </form>
+</div>
+
+
+</body>
+</html>
