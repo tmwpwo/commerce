@@ -1,11 +1,11 @@
+ugliest shop made for university assignment :DD
 golang needs to be installed
+sudo apt-get install build-essential libsqlite3-dev
 go run . <- command to run executed in /commerce directory 
 
-there might be a need to init the project so: 
 
 
-go mod init commerce
-go mod tidy 
-go run .
+
+
 
 
